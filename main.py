@@ -1,8 +1,4 @@
-a = [20, 25, 30, 35]
+a = open('data.txt')
+b = a.split()
 
-print(len(a))
-print(max(a))
-print(min(a))
-print(sum(a))
-
-
+print(b)
