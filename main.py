@@ -1,4 +1,18 @@
-a = open('data.txt')
-b = a.split()
+import speech_recognition as sr
+import pyttsx3 as ts
 
-print(b)
+listener = sr.Recognizer()
+engine = ts.init()
+
+try:
+    with sr.Microphone() as source:
+        print('I am Listening...')
+        voice = listener.listen(source)
+        command = listener.recognize_google(voice)
+        command = command.lower()
+
+
+
+except:
+    engine.say('Error')
+    engine.runAndWait()
