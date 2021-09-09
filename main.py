@@ -1,12 +1,15 @@
-x = input('Enter Your Text: ')
-alphabet = {'a': 1, 'b': 2}
+x = open('data.txt')
+counts = dict()
+for line in x:
+    words = line.split()
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
 
+lst = list()
+for key, value in counts.items():
+    newTup = (value, key)
+    lst.append(newTup)
 
-def splitChar(word):
-    return [char for char in word]
-
-
-y = splitChar(x.lower())
-
-for alphabet in y:
-    print(1)
+lst = sorted(lst, reverse=True)
+for value, key in lst[:3]:
+    print(key, value)
